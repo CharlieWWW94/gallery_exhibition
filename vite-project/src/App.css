@@ -9,40 +9,33 @@
   text-align: center;
 }
 
-.Navbar {
-  display: flex;
-  align-items: center;
-  background-color: aquamarine;
-  padding: 10px;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 0;
-  justify-content: space-evenly;
-  border-bottom: 1px solid blueviolet;
-  border-top: 1px solid blueviolet;
+@media screen and (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+  }
+
+  .Grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-inline: 15px;
+  }
+
 }
 
-.Navbar h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: blueviolet;
-}
+@media screen and (max-width: 480px) {
+  .Navbar {
+    flex-direction: column;
 
-.Navbar a {
-  float: left;
-  display: block;
-  color: blueviolet;
-  text-decoration: none;
-  margin: 0 10px;
-  text-align: center;
-  font-weight: 600;
-  padding: 10px;
-  z-index: 2;
-}
+    h1 {
+      font-size: 10px;
 
-.Navbar a:hover {
-  background-color: blueviolet;
-  color: white;
-  font-weight: bold;
-  transition-duration: 0.3s;
+    }
+
+    i {
+      font-size: 2.5rem;
+    }
+  }
+
+  .Grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
