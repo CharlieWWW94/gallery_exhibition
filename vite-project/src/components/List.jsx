@@ -1,20 +1,20 @@
-import React from 'react';
+// import React from 'react';
+import PropTypes from 'prop-types';
 
-
-
-function List(props) {
-  const { artList } = props;
+function List({ artList = [] }) {
   return (
     <div className="List">
-      <h2>Art List</h2>
       <ul>
-        {artList.map(art => (
-          <li key={art.id}>{art.title}</li>
+        {artList.map((art, index) => (
+          <li key={index}>{art}</li>
         ))}
       </ul>
     </div>
   );
 }
 
+List.propTypes = {
+  artList: PropTypes.array,
+};
 
 export default List;

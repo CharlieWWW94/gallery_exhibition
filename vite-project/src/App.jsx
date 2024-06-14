@@ -9,26 +9,13 @@ import List from './components/List'
 import { useState } from 'react'
 
 function App() {
-  const [selected, setSelected] = useState(null)
-  const [artList, setArtList] = useState([])
   const images = [art1, art2, art3, art4].flatMap(image => Array(4).fill(image));
+  const [artList, setArtList] = useState([])
 
-  function handleClick(e) {
-    setSelected(e.target.alt)
-    setArtList(artList => [...artList, {id: crypto.randomUUID(), title: selected}] )
-    console.log(selected)
-    console.log(artList)
-    return (
-      {artList}
-    )
-  }
-
-  function ArtGrid() {
-    images.map((image, index) => (
-      <Grid key={index}>
-        <img src={image} alt={`art${index}`} onClick={handleClick}/>
-      </Grid>
-    ))
+  function handleClick(image) {
+    const newArtList = [...artList, image]
+    console.log(image)
+    setArtList(newArtList)
   }
 
   return (
@@ -44,10 +31,12 @@ function App() {
           <h1>Art Gallery</h1>
         </div>
       <div>
-          <ArtGrid/>
+      <Grid images={images} handleClick={handleClick} />
       </div>
       </>
   )
+
+
 }
 
 export default App
