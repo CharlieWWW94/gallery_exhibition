@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#root {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+  }
+
+  .Grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-inline: 15px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .Navbar {
+    flex-direction: column;
+
+    h1 {
+      font-size: 10px;
+
+    }
+
+    i {
+      font-size: 2.5rem;
+    }
+  }
+
+  .Grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
