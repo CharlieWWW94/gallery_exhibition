@@ -18,6 +18,25 @@ function App() {
     setArtList(newArtList)
   }
 
+  useEffect (() => {
+    const fetchPosts = async () => {
+        setLoading (true);
+        try {
+            const response = await fetch("https://api.artic.edu/api/v1/artworks");
+            const data = await response.json();
+            setPosts (data);
+            setLoading (false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    fetchPosts();
+}, []);
+
+
+
+
+
   return (
     <>
       <div className="App">
