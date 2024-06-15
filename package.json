@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "vite preview",
-    "postinstall": "npm install && npm run build"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
