@@ -8,15 +8,19 @@
   margin: 0 5px;
   padding: 10px 20px;
   border: none;
-  background-color: #f0f0f0;
+  background-color: transparent;
   cursor: pointer;
+  transition-duration: 0.3s;
+  border-radius: 10px;
 }
 
 .pagination button.active {
-  background-color: #007bff;
+  background-color: rgb(20, 91, 119);
   color: #fff;
 }
 
 .pagination button:hover:not(.active) {
-  background-color: #ddd;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 20px;
 }

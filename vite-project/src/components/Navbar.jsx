@@ -4,9 +4,9 @@ import './Navbar.css';
 class Navbar extends Component{
   render(){
     return (
-      <nav className="Navbar">
+      <nav className="navbar">
         <h1>Art Gallery  <i className="fa-brands fa-react"></i> </h1>
-        <div className="NavItems">
+        <div className="navItems">
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/services">Services</a>

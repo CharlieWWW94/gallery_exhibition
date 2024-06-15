@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Pagination.css';
 
-const Pagination = ({ totalImages, imagesPerPage, setCurrentPage, currentPage }) => {
-  console.log('imagesPerPage:', imagesPerPage); // Add this line to check if imagesPerPage is being passed down
-
+const Pagination = ({ totalImages, imagesPerPage, setCurrentPage, currentPage, toggleModal }) => {
   let pages = [];
 
   for (let i = 1; i <= Math.ceil(totalImages / imagesPerPage); i++) {
@@ -22,6 +20,11 @@ const Pagination = ({ totalImages, imagesPerPage, setCurrentPage, currentPage })
           {page}
         </button>
       ))}
+      <div className="modalButton">
+        <button onClick={toggleModal}>
+        <i className="fa-solid fa-eye"></i>
+        </button>
+      </div>
     </div>
   );
 };

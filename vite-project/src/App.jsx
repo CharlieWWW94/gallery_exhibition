@@ -11,11 +11,24 @@ function App() {
   const [imagesPerPage, setImagesPerPage] = useState(16);
   const [loading, setLoading] = useState(false);
   const [artList, setArtList] = useState([]);
+  const [show, setShow] = useState(false);
 
   function handleClick(image) {
     const newArtList = [...artList, image];
     console.log(image);
     setArtList(newArtList);
+  }
+
+  function handleDelete(index) {
+    const newArtList = artList.filter((art, artIndex) => {
+      return artIndex !== index
+    });
+    setArtList(newArtList);
+
+  }
+
+  function toggleModal() {
+    setShow(!show);
   }
 
   useEffect(() => {
@@ -26,17 +39,19 @@ function App() {
         setLoading(true);
         const response = await fetch(url);
         const data = await response.json();
-        console.log('Fetched data:', data);
 
         const iiifUrl = data.config.iiif_url;
-        const extractedData = data.data.map((art) => ({
-          id: art.id,
-          title: art.title,
-          image_id: art.image_id,
-          iiif_url: iiifUrl,
-        }));
+        const extractedData = data.data
+          .filter(art => art.image_id !== null)
+          .map((art, i) => ({
+            key: `${art.id}-${i}`,
+            localId: (i + 1),
+            id: art.id,
+            title: art.title,
+            image_id: art.image_id,
+            iiif_url: iiifUrl,
+          }));
 
-        console.log('Extracted data:', extractedData);
         setImageData(extractedData);
         setLoading(false);
       } catch (error) {
@@ -57,15 +72,20 @@ function App() {
         <div className="App-header">
           <Navbar />
         </div>
-        <div className="list">
-          <List artList={artList} />
-        </div>
         <Pagination
-   totalImages={imageData.length}
-   imagesPerPage={imagesPerPage}
-   setCurrentPage={setCurrentPage}
-   currentPage={currentPage}/>
+          totalImages={imageData.length}
+          imagesPerPage={imagesPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          toggleModal={toggleModal}
+        />
+        <div className="list">
+          <List artList={artList} show={show} toggleModal={toggleModal} handleDelete={handleDelete}/>
+        </div>
         <h1>Art Gallery</h1>
+        <p>Click on the picture to add to the list.</p>
+        <p>Click on the eye icon to view the list.
+        </p>
       </div>
       <div>
         {loading ? (

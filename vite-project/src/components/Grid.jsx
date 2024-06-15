@@ -5,14 +5,14 @@ import React from 'react';
 function Grid({ currentImages = [], handleClick = () => {} }) {
   return (
     <div className="grid">
-      {currentImages.map((image, index) => {
-        const fullUrl = `${image.iiif_url}/${image.image_id}/full/843,/0/default.jpg`;
+      {currentImages.map((image) => {
+        const fullUrl = `${image.iiif_url}/${image.image_id}/full/300,/0/default.jpg`;
 
         return (
-          <div key={index} className="card" style={{ width: '18rem' }}>
-            <img src={fullUrl} alt={`art${index}`} onClick={() => handleClick(image)} />
+          <div key={image.key} className="gridItem" style={{ width: '18rem' }}>
+            <img src={fullUrl} alt={`art-${image.id}`} onClick={() => handleClick(image)} />
             <div className="card-body">
-              <p>{image.title}</p>
+              <p>{`${image.localId} - ${image.title}`}</p>
             </div>
           </div>
         );
