@@ -6,7 +6,7 @@ function List({ artList = [] }) {
     <div className="List">
       <ul>
         {artList.map((art, index) => (
-          <li key={index}>{art}</li>
+          <li key={art.id + index}>{art.title}</li>
         ))}
       </ul>
     </div>
