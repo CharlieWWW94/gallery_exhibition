@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#root {
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  padding: 20px;
+
+  .listItem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  Button {
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+    }
+
+  }
+
+
+}
