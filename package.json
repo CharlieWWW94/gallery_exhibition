@@ -9,7 +9,6 @@
     "start": "vite",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-
     "postinstall": "npm run build"
   },
   "dependencies": {
@@ -31,4 +30,10 @@
     "sass": "^1.77.4",
     "vite": "^5.2.0"
   }
+  {
+    "engines": {
+      "node": ">=20.14.0"
+    }
+  }
+
 }
