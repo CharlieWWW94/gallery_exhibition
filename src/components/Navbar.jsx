@@ -1,20 +1,18 @@
-import { Component } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
-class Navbar extends Component{
-  render(){
-    return (
+export default function Navbar() {
+  return (
+    <>
       <nav className="navbar">
-        <h1>Art Gallery  <i className="fa-brands fa-react"></i> </h1>
-        <div className="navItems">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/contact">Contact</a>
-        </div>
-      </nav>
-    );
-  }
+      <h1>Art Gallery  <i className="fa-brands fa-react"></i> </h1>
+      <div className="navItems">
+        <Link to ="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+    </nav>
+  </>
+  )
 }
-
-export default Navbar
